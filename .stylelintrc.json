@@ -6,6 +6,7 @@
     "property-case": "lower",
     "value-keyword-case": "lower",
     "selector-type-case": "lower",
-    "block-no-empty": true
+    "block-no-empty": true,
+    "no-empty-source": null
   }
 }
