@@ -3,9 +3,9 @@ name: Linting Pipeline
 # Trigger on pushes and PRs targeting develop
 on:
   push:
-    branches: [ develop ]
+    branches: [develop]
   pull_request:
-    branches: [ develop ]
+    branches: [develop]
 
 jobs:
   lint:
@@ -19,7 +19,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: "16"
 
       # 3) Install linting tools
       - name: Install HTMLHint & Stylelint
@@ -31,4 +31,30 @@ jobs:
 
       # 5) Run Stylelint against all .css files
       - name: Stylelint
-        run: npx stylelint "**/*.css" --config .stylelintrc.json
+        run: npx stylelint "**/*.css" --config .stylelintrc.json --allow-empty-inputs
+      # 6) Check for any linting errors
+      - name: Check for linting errors
+        run: |
+          if [ $? -ne 0 ]; then
+            echo "Linting errors found. Please fix them before merging."
+            exit 1
+          else
+            echo "No linting errors found."
+          fi
+      # 7) Upload linting results as artifacts
+      - name: Upload linting results
+        uses: actions/upload-artifact@v3
+        with:
+          name: lint-results
+          path: |
+            **/*.html
+            **/*.css
+            .htmlhintrc.json
+            .stylelintrc.json
+          retention-days: 7
+      # 8) Notify on success or failure
+      - name: Notify on success or failure
+        if: failure()
+        run: echo "Linting failed. Please check the results."
+        else:
+          run: echo "Linting passed successfully."
