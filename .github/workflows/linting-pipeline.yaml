@@ -23,7 +23,8 @@ jobs:
 
       # 3) Install linting tools
       - name: Install HTMLHint & Stylelint
-        run: npm install --save-dev htmlhint stylelint stylelint-config-standard
+        run: |
+          npm install --save-dev htmlhint stylelint stylelint-config-standard
 
       # 4) Run HTMLHint against all .html files
       - name: HTMLHint
@@ -31,7 +32,7 @@ jobs:
 
       # 5) Run Stylelint against all .css files (allow no matches)
       - name: Stylelint
-        run: npx --yes stylelint "**/*.css" --config .stylelintrc.json --allow-empty-input
+        run: npx stylelint "**/*.css" --config .stylelintrc.json --allow-empty-input
 
       # 6) Upload linting artifacts (configs & any logs)
       - name: Upload linting results
