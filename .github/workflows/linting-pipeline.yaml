@@ -15,7 +15,7 @@ jobs:
       # 1) Check out your code
       - uses: actions/checkout@v3
 
-      # 2) Set up Node.js environment
+      # 2) Set up Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -29,26 +29,16 @@ jobs:
       - name: HTMLHint
         run: npx htmlhint "**/*.html" --config .htmlhintrc.json
 
-      # 5) Run Stylelint against all .css files
+      # 5) Run Stylelint against all .css files (allow no matches)
       - name: Stylelint
-        run: npx stylelint "**/*.css" --config .stylelintrc.json --allow-empty-inputs
-      # 6) Check for any linting errors
-      - name: Check for linting errors
-        run: |
-          if [ $? -ne 0 ]; then
-            echo "Linting errors found. Please fix them before merging."
-            exit 1
-          else
-            echo "No linting errors found."
-          fi
-      # 7) Upload linting results as artifacts
+        run: npx stylelint "**/*.css" --config .stylelintrc.json --allow-empty-input
+
+      # 6) Upload linting artifacts (configs & any logs)
       - name: Upload linting results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: lint-results
           path: |
-            **/*.html
-            **/*.css
             .htmlhintrc.json
             .stylelintrc.json
-          retention-days: 7
+            npm-debug.log   # if npm errors, its log gets uploaded
