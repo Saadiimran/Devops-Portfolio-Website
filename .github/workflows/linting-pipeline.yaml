@@ -31,7 +31,7 @@ jobs:
 
       # 5) Run Stylelint against all .css files (allow no matches)
       - name: Stylelint
-        run: npx stylelint "**/*.css" --config .stylelintrc.json --allow-empty-input
+        run: npx --yes stylelint "**/*.css" --config .stylelintrc.json --allow-empty-input
 
       # 6) Upload linting artifacts (configs & any logs)
       - name: Upload linting results
