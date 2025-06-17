@@ -5,6 +5,7 @@ body, h1, h2, h3, p, ul, li, a {
     box-sizing: border-box;
 }
 
+  
 /* Body styling */
 body {
     font-family: Arial, sans-serif;
@@ -13,6 +14,7 @@ body {
     line-height: 1.6;
 }
 
+  
 /* Header styling */
 header {
     background: #222;
@@ -44,6 +46,7 @@ nav a:hover {
     color: #00bcd4;
 }
 
+  
 /* Main content */
 main {
     max-width: 900px;
@@ -51,7 +54,6 @@ main {
     padding: 20px;
     background: #fff;
     border-radius: 8px;
-    /* updated to modern notation with percent alpha */
     box-shadow: 0 2px 8px rgb(0 0 0 / 50%);
 }
 
@@ -68,6 +70,7 @@ p {
     margin-bottom: 10px;
 }
 
+  
 /* Footer styling */
 footer {
     background: #222;
