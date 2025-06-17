@@ -47,15 +47,3 @@ jobs:
           else
             echo "No linting errors found."
           fi
-      # 8) Upload linting results as artifacts
-      - name: Upload linting results
-        uses: actions/upload-artifact@v3
-        with:
-          name: lint-results
-          path: |
-            **/*.html
-            **/*.css
-            .htmlhintrc.json
-            .stylelintrc.json
-          retention-days: 7
-      
