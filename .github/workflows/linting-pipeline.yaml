@@ -24,6 +24,8 @@ jobs:
       # 3) Install dependencies
       - name: Install dependencies
         run: npm ci
+      - name: chmod something 
+        run: chmod +x node_modules/.bin/stylelint
 
       # 4) Install linting tools
       - name: Install HTMLHint & Stylelint
