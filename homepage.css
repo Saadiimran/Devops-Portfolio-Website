@@ -51,8 +51,8 @@ main {
     padding: 20px;
     background: #fff;
     border-radius: 8px;
+    /* updated to modern notation with percent alpha */
     box-shadow: 0 2px 8px rgb(0 0 0 / 50%);
-
 }
 
 section {
