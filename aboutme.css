@@ -13,7 +13,7 @@ body {
     margin: 40px auto;
     background: #fff;
     border-radius: 10px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 24px rgb(0 0 0 / 8%);
     padding: 40px 32px;
 }
 
@@ -40,7 +40,7 @@ h2 {
     display: block;
     margin: 0 auto 24px auto;
     border: 4px solid #2d6cdf;
-    box-shadow: 0 2px 8px rgba(45,108,223,0.08);
+    box-shadow: 0 2px 8px rgb(45 108 223 / 8%);
 }
 
 .about-text {
@@ -63,17 +63,19 @@ h2 {
     padding: 8px 18px;
     border-radius: 20px;
     font-size: 1rem;
-    box-shadow: 0 1px 4px rgba(45,108,223,0.05);
+    box-shadow: 0 1px 4px rgb(45 108 223 / 5%);
 }
 
 @media (max-width: 600px) {
     .container {
         padding: 20px 8px;
     }
+
     .profile-pic {
         width: 100px;
         height: 100px;
     }
+
     h1 {
         font-size: 2rem;
     }
