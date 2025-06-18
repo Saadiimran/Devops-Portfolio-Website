@@ -46,17 +46,18 @@ textarea {
     transition: border 0.2s;
 }
 
+/* --- general textarea rules come before :focus --- */
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
 input[type="text"]:focus,
 input[type="email"]:focus,
 textarea:focus {
     border: 1.5px solid #1976d2;
     outline: none;
     background: #fff;
-}
-
-textarea {
-    min-height: 100px;
-    resize: vertical;
 }
 
 button[type="submit"] {
